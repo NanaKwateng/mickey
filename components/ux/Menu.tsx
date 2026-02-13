@@ -238,7 +238,7 @@ const Menu = () => {
                     <ul className="flex flex-col gap-3" role="list">
                         {menuLinks.map((link) => (
                             <li
-                                key={link.path}
+                                key={link.label}
                                 className="overflow-hidden h-[90px] md:h-[120px]"
                             >
                                 <div className="menu-link-item-holder flex items-center h-full">
