@@ -6,7 +6,7 @@ import { Badge } from "../ui/badge";
 
 
 const stats = [
-    { label: "Location", value: "180+ Countries" },
+    { label: "Location", value: "Ghana" },
     { label: "Active Users", value: "300K+" },
     { label: "Social", value: "@mickey_labs" },
     { label: "Global Reach", value: "24/7 Support" },
@@ -36,14 +36,14 @@ export default function TextsDemo() {
                 </p>
 
                 {/* Stats Grid inspired by download (6).jpeg */}
-                <div className="grid grid-cols-2 gap-y-10 gap-x-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-8">
                     {stats.map((stat, i) => (
                         <div key={i} className="flex flex-col gap-1">
+                            <span className="text-[10px] uppercase text-neutral-500 font-semibold">
+                                {stat.label}
+                            </span>
                             <span className="text-3xl md:text-4xl font-bold text-white tracking-tight">
                                 {stat.value}
-                            </span>
-                            <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-bold">
-                                {stat.label}
                             </span>
                         </div>
                     ))}

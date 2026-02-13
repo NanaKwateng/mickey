@@ -1,6 +1,6 @@
 "use client";
 
-import React, {
+import {
     useState,
     useRef,
     useEffect,
@@ -16,7 +16,7 @@ import { MenuIcon, X } from "lucide-react";
 // ─── Data ────────────────────────────────────────────
 const menuLinks = [
     { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
+    { path: "/strategy", label: "About" },
     { path: "/strategy", label: "Work" },
     { path: "/lab", label: "Lab" },
     { path: "/contact", label: "Contact" },

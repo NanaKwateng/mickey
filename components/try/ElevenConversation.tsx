@@ -8,8 +8,8 @@ const DEFAULT_AGENT = {
 
 export function ConversationBarDemo() {
     return (
-        <div className="flex min-h-[200px] w-full items-center justify-center">
-            <div className="w-full max-w-md">
+        <div className="flex min-h-[100px] w-2/3 items-center justify-end">
+            <div className="w-full max-w-xs">
                 <ConversationBar
                     agentId={DEFAULT_AGENT.agentId}
                     onConnect={() => console.log("Connected")}

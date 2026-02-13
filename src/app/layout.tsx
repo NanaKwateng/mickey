@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans, Sora } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/ux/Header";
+import { ConversationBarDemo } from "@/components/try/ElevenConversation";
 
 const notoSans = Sora({ variable: '--font-sans' });
 
@@ -30,8 +31,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-
         {children}
+        <div className="fixed bottom-3 -right-8  z-50">
+          <ConversationBarDemo />
+        </div>
       </body>
     </html>
   );

@@ -127,6 +127,8 @@ export const ConversationBar = React.forwardRef<
         }, [])
 
         const startConversation = React.useCallback(async () => {
+            if (!agentId) return
+
             try {
                 setAgentState("connecting")
 
@@ -216,7 +218,7 @@ export const ConversationBar = React.forwardRef<
                     <div className="flex flex-col-reverse">
                         <div>
                             {keyboardOpen && <Separator />}
-                            <div className="flex items-center justify-between gap-2 p-2">
+                            <div className="flex items-center justify-between gap-2 p-2 flex-col">
                                 <div className="h-8 w-[120px] md:h-10">
                                     <div
                                         className={cn(

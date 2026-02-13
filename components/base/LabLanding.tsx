@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { AlertDialogDemo } from '../library/AlertPopup';
 
 export default function LabLandingPage() {
     return (
@@ -97,19 +98,16 @@ export default function LabLandingPage() {
                             <span className="text-[10px] font-bold uppercase tracking-widest">Lab Summer<br />Collection 2026</span>
                         </div>
                         <p className="text-[9px] uppercase tracking-[0.2em] text-neutral-400 [writing-mode:vertical-rl]">
-                            Visual Language — 20 / 26
+                            Visual  — Elements 20 / 26
                         </p>
                     </div>
                 </div>
 
                 {/* 3. FOOTER / SIDEBAR ELEMENTS */}
                 <footer className="absolute bottom-10 left-6 md:left-12 flex items-end gap-8">
-                    <div className="w-16 h-10 relative hidden md:block overflow-hidden rounded-sm grayscale opacity-80">
-                        <Image src="/footer-thumb.jpg" alt="Collection Preview" fill className="object-cover" />
-                    </div>
-                    <p className="max-w-[150px] text-[8px] uppercase leading-relaxed text-neutral-400">
-                        For authentication of lab. unveil summer collection and protection keep unseen. all rights reserved.
-                    </p>
+
+                    <AlertDialogDemo src='/videos/Mikes.mp4' poster='/images/design.png' title='Listen to the story' />
+
                 </footer>
 
                 {/* Scroll Indicator */}
