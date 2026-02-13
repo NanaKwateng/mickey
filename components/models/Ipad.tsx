@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useGLTF, useVideoTexture } from '@react-three/drei'
-import { GroupProps } from '@react-three/fiber'
+import { ThreeElements } from '@react-three/fiber'
 import { GLTF } from 'three-stdlib'
 
 type GLTFResult = GLTF & {
@@ -8,7 +8,9 @@ type GLTFResult = GLTF & {
   materials: any
 }
 
-export default function TabletModel(props: GroupProps) {
+export default function TabletModel(
+  props: ThreeElements['group']
+) {
   const { nodes, materials } = useGLTF('/models/ipad.glb') as GLTFResult
 
   // 1. Load the video texture
@@ -17,11 +19,11 @@ export default function TabletModel(props: GroupProps) {
     muted: true,
     loop: true,
     start: true,
-    playsInline: true, // CRITICAL for iOS to prevent fullscreen takeover
+    playsInline: true, // CRITICAL for iOS
     crossOrigin: 'Anonymous',
   })
 
-  // 2. THE FIX: Correcting the UV Mapping
+  // 2. Correct UV Mapping
   useEffect(() => {
     if (videoTexture) {
       videoTexture.flipY = false
@@ -36,7 +38,7 @@ export default function TabletModel(props: GroupProps) {
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[-Math.PI, 0, 0]} scale={0.01}>
 
-          {/* --- SCREEN MESH --- */}
+          {/* --- SCREEN --- */}
           <mesh geometry={nodes.Object_13_Custom_0.geometry}>
             <meshBasicMaterial
               map={videoTexture}
@@ -44,10 +46,11 @@ export default function TabletModel(props: GroupProps) {
             />
           </mesh>
 
-          {/* --- REST OF THE TABLET CHASSIS --- */}
+          {/* --- CHASSIS --- */}
           <mesh geometry={nodes.Object_16_Material_17_0.geometry} material={materials.Material_17} />
           <mesh geometry={nodes.Object_12_Plastic_0.geometry} material={materials.Plastic} />
 
+          {/* Plastic Parts */}
           <group>
             <mesh geometry={nodes.Object_111_Plastic_0.geometry} material={materials.Plastic} />
             <mesh geometry={nodes.Object_112_Plastic_0.geometry} material={materials.Plastic} />
@@ -68,6 +71,7 @@ export default function TabletModel(props: GroupProps) {
             <mesh geometry={nodes['Object_135_Plastic_(2)_0'].geometry} material={materials.Plastic_2} />
           </group>
 
+          {/* Metal Parts */}
           <group>
             <mesh geometry={nodes.Object_11_Metal_0.geometry} material={materials.Metal} />
             <mesh geometry={nodes.Object_15_Metal_0.geometry} material={materials.Metal} />
@@ -84,18 +88,21 @@ export default function TabletModel(props: GroupProps) {
             <mesh geometry={nodes['Object_117_Metal_(4)_0'].geometry} material={materials.Metal_4} />
           </group>
 
+          {/* Glass & Custom */}
           <mesh geometry={nodes['Object_35_Custom_(1)_0'].geometry} material={materials.Custom_1} />
           <mesh geometry={nodes['Object_42_Custom_(1)_0'].geometry} material={materials.Custom_1} />
           <mesh geometry={nodes.Object_36_Glass_0.geometry} material={materials.Glass} />
           <mesh geometry={nodes.Object_41_Glass_0.geometry} material={materials.Glass} />
           <mesh geometry={nodes['Object_33_Custom_(2)_0'].geometry} material={materials.Custom_2} />
 
+          {/* Metal 5 */}
           <mesh geometry={nodes['Object_9_Metal_(5)_0'].geometry} material={materials.Metal_5} />
           <mesh geometry={nodes['Object_10_Metal_(5)_0'].geometry} material={materials.Metal_5} />
           <mesh geometry={nodes['Object_14_Metal_(5)_0'].geometry} material={materials.Metal_5} />
           <mesh geometry={nodes['Object_114_Metal_(5)_0'].geometry} material={materials.Metal_5} />
           <mesh geometry={nodes['Object_120_Metal_(5)_0'].geometry} material={materials.Metal_5} />
 
+          {/* Dynamic Metal 6 & 7 */}
           {Object.keys(nodes).map((key) => {
             if (key.includes('Metal_(6)') || key.includes('Metal_(7)')) {
               const node = nodes[key] as any
