@@ -1,9 +1,15 @@
 import { useEffect } from 'react'
 import { useGLTF, useVideoTexture } from '@react-three/drei'
+import { GroupProps } from '@react-three/fiber'
+import { GLTF } from 'three-stdlib'
 
+type GLTFResult = GLTF & {
+  nodes: any
+  materials: any
+}
 
-export default function TabletModel(props) {
-  const { nodes, materials } = useGLTF('/models/ipad.glb')
+export default function TabletModel(props: GroupProps) {
+  const { nodes, materials } = useGLTF('/models/ipad.glb') as GLTFResult
 
   // 1. Load the video texture
   const videoTexture = useVideoTexture('/videos/screen.mp4', {
@@ -18,14 +24,9 @@ export default function TabletModel(props) {
   // 2. THE FIX: Correcting the UV Mapping
   useEffect(() => {
     if (videoTexture) {
-      // GLTF models expect the texture NOT to be flipped vertically
       videoTexture.flipY = false
-
-      // Fix rotation: Center the pivot point, then rotate 90 degrees
-      // If it's still sideways, try: Math.PI / 2 or -Math.PI / 2
       videoTexture.center.set(0.5, 0.5)
       videoTexture.rotation = -Math.PI / 2
-
       videoTexture.needsUpdate = true
     }
   }, [videoTexture])
@@ -37,10 +38,6 @@ export default function TabletModel(props) {
 
           {/* --- SCREEN MESH --- */}
           <mesh geometry={nodes.Object_13_Custom_0.geometry}>
-            {/* 
-              Using meshBasicMaterial makes the screen look like it's emitting light (self-illuminated).
-              toneMapped={false} ensures the colors stay vivid and aren't washed out by scene lighting.
-            */}
             <meshBasicMaterial
               map={videoTexture}
               toneMapped={false}
@@ -48,11 +45,9 @@ export default function TabletModel(props) {
           </mesh>
 
           {/* --- REST OF THE TABLET CHASSIS --- */}
-          {/* I've kept the geometry intact but organized it slightly for readability */}
           <mesh geometry={nodes.Object_16_Material_17_0.geometry} material={materials.Material_17} />
           <mesh geometry={nodes.Object_12_Plastic_0.geometry} material={materials.Plastic} />
 
-          {/* Plastic Parts Group */}
           <group>
             <mesh geometry={nodes.Object_111_Plastic_0.geometry} material={materials.Plastic} />
             <mesh geometry={nodes.Object_112_Plastic_0.geometry} material={materials.Plastic} />
@@ -73,7 +68,6 @@ export default function TabletModel(props) {
             <mesh geometry={nodes['Object_135_Plastic_(2)_0'].geometry} material={materials.Plastic_2} />
           </group>
 
-          {/* Metal Parts Group */}
           <group>
             <mesh geometry={nodes.Object_11_Metal_0.geometry} material={materials.Metal} />
             <mesh geometry={nodes.Object_15_Metal_0.geometry} material={materials.Metal} />
@@ -90,15 +84,12 @@ export default function TabletModel(props) {
             <mesh geometry={nodes['Object_117_Metal_(4)_0'].geometry} material={materials.Metal_4} />
           </group>
 
-          {/* Glass & Other Details */}
           <mesh geometry={nodes['Object_35_Custom_(1)_0'].geometry} material={materials.Custom_1} />
           <mesh geometry={nodes['Object_42_Custom_(1)_0'].geometry} material={materials.Custom_1} />
           <mesh geometry={nodes.Object_36_Glass_0.geometry} material={materials.Glass} />
           <mesh geometry={nodes.Object_41_Glass_0.geometry} material={materials.Glass} />
           <mesh geometry={nodes['Object_33_Custom_(2)_0'].geometry} material={materials.Custom_2} />
 
-          {/* Collapsed repetitive Metal_5, Metal_6, Metal_7 for cleaner code */}
-          {/* NOTE: In a real production app, I would traverse these in a loop, but keeping them here ensures all geometry loads */}
           <mesh geometry={nodes['Object_9_Metal_(5)_0'].geometry} material={materials.Metal_5} />
           <mesh geometry={nodes['Object_10_Metal_(5)_0'].geometry} material={materials.Metal_5} />
           <mesh geometry={nodes['Object_14_Metal_(5)_0'].geometry} material={materials.Metal_5} />
@@ -106,10 +97,15 @@ export default function TabletModel(props) {
           <mesh geometry={nodes['Object_120_Metal_(5)_0'].geometry} material={materials.Metal_5} />
 
           {Object.keys(nodes).map((key) => {
-            // Dynamically render the hundreds of small metal parts to clean up the JSX
-            // This filters for Metal_6 and Metal_7 parts
             if (key.includes('Metal_(6)') || key.includes('Metal_(7)')) {
-              return <mesh key={key} geometry={nodes[key].geometry} material={nodes[key].material} />
+              const node = nodes[key] as any
+              return (
+                <mesh
+                  key={key}
+                  geometry={node.geometry}
+                  material={node.material}
+                />
+              )
             }
             return null
           })}
@@ -121,4 +117,3 @@ export default function TabletModel(props) {
 }
 
 useGLTF.preload('/models/ipad.glb')
-
