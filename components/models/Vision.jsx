@@ -6,8 +6,6 @@ License: COPYRIGHT TO Navarion
 Source: https://sketchfab.com/3d-models/apple-vision-pro-ios16-8bd7123015ee4509b1c312f54a877597
 Title: apple_vision_pro_ios16
 */
-
-import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export default function VisionModel(props) {

@@ -233,13 +233,13 @@ const Menu = () => {
                 {/* Menu Links */}
                 <nav
                     aria-label="Menu navigation"
-                    className="flex-1 flex flex-col justify-center"
+                    className="flex-1 flex flex-col justify-center py-5"
                 >
-                    <ul className="flex flex-col gap-3" role="list">
+                    <ul className="flex flex-col gap-1" role="list">
                         {menuLinks.map((link) => (
                             <li
                                 key={link.label}
-                                className="overflow-hidden h-[90px] md:h-[120px]"
+                                className="overflow-hidden h-[90px] md:h-[90px]"
                             >
                                 <div className="menu-link-item-holder flex items-center h-full">
                                     <Link
