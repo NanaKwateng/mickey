@@ -61,13 +61,13 @@ export const EducationContent = () => (
 export const MenModel = React.memo(() => <TabletModel />);
 
 export const EducationModel = React.memo(() => (
-    <group rotation={[0, -Math.PI / 2, 0]} scale={0.008}>
+    <group rotation={[0, -Math.PI / 2, 0]} scale={0.010}>
         <MacBookModel14 />
     </group>
 ));
 
 export const SkillsModel = React.memo(() => (
-    <group rotation={[0, -Math.PI / 2, 0]} scale={0.22}>
-        <MachineModel />
+    <group rotation={[0, -Math.PI / 2, 0]} scale={0.013}>
+        <MacBookModel14 />
     </group>
 ));

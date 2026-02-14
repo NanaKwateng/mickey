@@ -93,7 +93,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${mono.variable}`}>
+    <html lang="en" className={`${mono.variable} ${sora.variable}`}>
       <body className="font-sans antialiased bg-black text-white selection:bg-white selection:text-black">
 
         {children}

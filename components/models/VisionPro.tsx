@@ -6,11 +6,21 @@ Source: https://sketchfab.com/3d-models/apple-vision-pro-ios16-8bd7123015ee4509b
 Title: apple_vision_pro_ios16
 */
 
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import React from "react";
+import * as THREE from "three";
+import { useGLTF } from "@react-three/drei";
+import type { ThreeElements } from "@react-three/fiber";
+import type { GLTF } from "three-stdlib";
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF('/apple_vision_pro_ios16.glb')
+type GLTFResult = GLTF & {
+  nodes: Record<string, THREE.Mesh>;
+  materials: Record<string, THREE.Material>;
+};
+
+export function Model(props: ThreeElements["group"]) {
+  const { nodes, materials } = useGLTF(
+    "/apple_vision_pro_ios16.glb"
+  ) as unknown as GLTFResult;
   return (
     <group {...props} dispose={null}>
       <group scale={0.01}>
