@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 // Import your 3D models
 import TabletModel from "@/components/models/Ipad";
-import { MachineModel } from "@/components/models/Machine";
+
 import MacBookModel14 from '@/components/models/Macbook-14';
 
 // --- TEXT COMPONENTS ---
