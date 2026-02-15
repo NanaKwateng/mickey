@@ -30,10 +30,10 @@ if (typeof window !== "undefined") {
 /* Scene Content                              */
 /* ------------------------------------------ */
 
-function SceneContent({
+function SceneContent<T extends HTMLElement>({
     triggerRef
 }: {
-    triggerRef: React.RefObject<HTMLElement>
+    triggerRef: React.RefObject<T | null>
 }) {
     // ✅ Safe typing — no namespace usage
     const mainGroupRef = useRef<Group | null>(null)
