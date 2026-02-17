@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { ArrowDown } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import Lenis from '@studio-freight/lenis';
+import Lenis from 'lenis';
 import Image from 'next/image';
 import { TabsDemo } from './TabsComponent';
 

@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { Plus, ArrowDown } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lenis from '@studio-freight/lenis';
+import Lenis from 'lenis';
 import CreativeLabUI from '@/components/ux/Labs';
 import Image from 'next/image';
 import DropDownMenu from '@/components/library/SmoothDropdown';
