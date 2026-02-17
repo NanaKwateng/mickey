@@ -17,7 +17,7 @@ export default function Header() {
         {/* LOGO: Must be a Link, and pointer-events-auto to be clickable */}
         <Link
           href="/"
-          className="text-md tracking-tighter font-bold z-[51] pointer-events-auto hover:opacity-70 transition-opacity"
+          className="text-md tracking-tighter text-sm font-semibold z-[51] pointer-events-auto hover:opacity-70 transition-opacity"
           aria-label="MickeyLabs Home"
         >
           MickeyLabs.

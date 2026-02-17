@@ -78,7 +78,7 @@ export default function TabletVisionExperience() {
     return (
         <section
             ref={containerRef}
-            className="relative w-full h-screen bg-[#050505] overflow-hidden flex items-center justify-center"
+            className="relative w-full h-screen bg-black overflow-hidden flex items-center justify-center"
             aria-label="Interactive 3D Experience"
         >
             <div className="absolute top-4 md:top-12 inset-x-0 flex justify-center z-30 pointer-events-none" aria-hidden="true">

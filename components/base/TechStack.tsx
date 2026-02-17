@@ -142,7 +142,7 @@ export default function TechStack() {
                    Orbit System 
                    Centering logic: top-[100%] moves it to bottom, then we adjust Y to peek out.
                 */}
-                <div className="absolute top-[85%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                <div className="absolute top-[95%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
                     <div
                         ref={orbitRef}
                         className="relative w-0 h-0 flex items-center justify-center cursor-grab active:cursor-grabbing will-change-transform"

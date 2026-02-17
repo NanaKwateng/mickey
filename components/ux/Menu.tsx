@@ -11,7 +11,8 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Button } from "../ui/button";
-import { MenuIcon, X } from "lucide-react";
+import { X } from "lucide-react";
+import { FaGripLines } from "react-icons/fa";
 
 // ─── Data ────────────────────────────────────────────
 const menuLinks = [
@@ -160,12 +161,12 @@ const Menu = () => {
             <Button
                 ref={triggerRef}
                 variant="secondary"
-                size="sm"
+                size="icon"
                 className="
           px-4 rounded-full cursor-pointer
           text-sm font-semibold
           focus-visible:outline-2 focus-visible:outline-offset-2
-          focus-visible:outline-white
+          focus-visible:outline-white flex items-center gap-2 justify-center 
         "
                 onClick={openMenu}
                 aria-expanded={isMenuOpen}
@@ -173,8 +174,9 @@ const Menu = () => {
                 aria-haspopup="dialog"
                 aria-label="Open navigation menu"
             >
-                <span aria-hidden="true">menu</span>
-                <MenuIcon className="w-4 h-4" aria-hidden="true" />
+                {/* <span aria-hidden="true">menu</span> */}
+
+                <FaGripLines className="w-4 h-4" aria-hidden="true" />
             </Button>
 
             {/* ─── Fullscreen Overlay ─────────────────── */}
@@ -202,7 +204,7 @@ const Menu = () => {
                     <Link
                         href="/"
                         className="
-              text-xl font-bold tracking-tighter
+              text-sm font-bold tracking-tighter
               focus-visible:outline-2 focus-visible:outline-offset-4
               focus-visible:outline-black
             "

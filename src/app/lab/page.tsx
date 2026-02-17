@@ -1,5 +1,3 @@
-import { ConversationBar } from "@/components/ui/conversation-bar";
-import { TranscriptViewerAudio } from "@/components/ui/transcript-viewer";
 import { HoverCardDemo } from "@/components/ux/HoverCard";
 
 

@@ -18,6 +18,8 @@ import VisionModel from "@/components/models/Vision"
 import StudioLights from "./StudioLight"
 import FadeInTextBlock from "../ux/FadeInTextBlock"
 import { Badge } from "../ui/badge"
+import { Sparkles, Code2, LayoutDashboard, Gauge } from "lucide-react";
+import { GiMicrochip } from "react-icons/gi"
 
 /* ------------------------------------------ */
 /* GSAP Safe Registration                     */
@@ -173,9 +175,69 @@ export default function AppleVisionExperience() {
             </div>
 
             {/* Overlay Content */}
-            <div className="absolute inset-0 z-10 pointer-events-none">
-                {/* Your content remains unchanged */}
+            {/* Overlay Content */}
+            <div className="absolute inset-0 z-10 pointer-events-none flex flex-col justify-center px-6 md:px-16">
+                <div className="space-y-20 w-full max-w-6xl mx-auto">
+
+                    {/* 1 — LEFT */}
+                    <div className="pointer-events-auto max-w-md mr-auto flex flex-col">
+                        <Sparkles className="w-8 h-8 text-white mb-4" />
+
+                        <FadeInTextBlock
+                            title="Creative Direction."
+                            description="Designing immersive digital products that merge aesthetic clarity with purposeful interaction."
+                            subDescription="Design that speaks before words."
+                            titleClassName="text-white text-4xl md:text-5xl font-light mb-4"
+                            descriptionClassName="text-white/80 text-sm leading-relaxed"
+                            subDescriptionClassName="text-white/50 text-xs mt-3"
+                        />
+                    </div>
+
+                    {/* 2 — RIGHT */}
+                    <div className="pointer-events-auto max-w-md ml-auto flex flex-col text-right">
+                        <Code2 className="w-8 h-8 text-white mb-4 ml-auto" />
+
+                        <FadeInTextBlock
+                            title="Full Stack Development."
+                            description="From backend architecture to pixel-perfect frontend systems — engineered for scalability and performance."
+                            subDescription="Built for longevity and speed."
+                            titleClassName="text-white text-4xl md:text-5xl font-light mb-4"
+                            descriptionClassName="text-white/80 text-sm leading-relaxed"
+                            subDescriptionClassName="text-white/50 text-xs mt-3"
+                        />
+                    </div>
+
+                    {/* 3 — LEFT */}
+                    <div className="pointer-events-auto max-w-md mr-auto flex flex-col">
+                        <GiMicrochip className="w-8 h-8 text-white mb-4" />
+
+                        <FadeInTextBlock
+                            title="User Experience."
+                            description="Human-centered systems crafted for clarity, emotion, and intuitive navigation."
+                            subDescription="Experience before interface."
+                            titleClassName="text-white text-4xl md:text-5xl font-light mb-4"
+                            descriptionClassName="text-white/80 text-sm leading-relaxed"
+                            subDescriptionClassName="text-white/50 text-xs mt-3"
+                        />
+                    </div>
+
+                    {/* 4 — RIGHT */}
+                    <div className="pointer-events-auto max-w-md ml-auto flex flex-col text-right">
+                        <Gauge className="w-8 h-8 text-white mb-4 ml-auto" />
+
+                        <FadeInTextBlock
+                            title="Performance Optimization."
+                            description="Precision tuning across frontend and backend to deliver seamless, fast-loading experiences."
+                            subDescription="Speed meets elegance."
+                            titleClassName="text-white text-4xl md:text-5xl font-light mb-4"
+                            descriptionClassName="text-white/80 text-sm leading-relaxed"
+                            subDescriptionClassName="text-white/50 text-xs mt-3"
+                        />
+                    </div>
+
+                </div>
             </div>
+
         </section>
     )
 }

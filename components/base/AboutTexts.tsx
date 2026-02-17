@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import TabletModel from "@/components/models/Ipad";
 
 import MacBookModel14 from '@/components/models/Macbook-14';
+import { Walle } from '../models/Walle';
 
 // --- TEXT COMPONENTS ---
 
@@ -67,7 +68,7 @@ export const EducationModel = React.memo(() => (
 ));
 
 export const SkillsModel = React.memo(() => (
-    <group rotation={[0, -Math.PI / 2, 0]} scale={0.013}>
-        <MacBookModel14 />
+    <group rotation={[0, -Math.PI / 2, 0]} scale={0.1}>
+        <Walle />
     </group>
 ));

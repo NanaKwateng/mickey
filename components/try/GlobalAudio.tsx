@@ -47,7 +47,7 @@ export default function GlobalAudioToggle() {
     <Button
       onClick={toggleAudio}
       variant={"secondary"}
-      size={"icon"}
+      size={"icon-sm"}
       aria-label="Toggle sound"
       className="rounded-full"
     >

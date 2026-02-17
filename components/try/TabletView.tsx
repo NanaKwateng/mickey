@@ -57,7 +57,7 @@ export default function TabletVisionExperience() {
 
                 <FadeInTextBlock
                     className="max-w-xs absolute bottom-12 text-black"
-                    title="Contact Me. "
+                    title="Contact Me."
                     description="Hi 👋, my name is Michael, a creative developer who build minimal, aesthetic applications focusing on user-centric design which matches your brand tone and voice."
                     subDescription="Precision-crafted for modern timepieces."
                     titleClassName="text-black text-5xl font-light mb-4"

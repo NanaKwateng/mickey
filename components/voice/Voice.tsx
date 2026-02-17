@@ -36,6 +36,7 @@ export default function Voice() {
             const agentId = process.env.NEXT_PUBLIC_ELEVENLABS_AGENT_ID!;
             const conversationId = await conversation.startSession({
                 agentId: agentId,
+                connectionType: "webrtc",
             });
             console.log("Started conversation:", conversationId);
         } catch (err) {

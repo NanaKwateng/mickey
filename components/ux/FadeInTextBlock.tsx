@@ -78,7 +78,7 @@ export default function FadeInTextBlock({
     }, [title, description, subDescription])
 
     return (
-        <div
+        <article
             ref={containerRef}
             className={`flex flex-col gap-2 ${className}`}
         >
@@ -97,6 +97,6 @@ export default function FadeInTextBlock({
                     {subDescription}
                 </p>
             )}
-        </div>
+        </article>
     )
 }
